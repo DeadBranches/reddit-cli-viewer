@@ -5,7 +5,6 @@ import datetime
 import argparse
 import humanize
 import requests
-from icecream import ic
 
 
 def get_reddit_json(page_url: str):
@@ -33,7 +32,6 @@ def get_reddit_json(page_url: str):
 
     response = requests.get(json_url, headers=headers)
     if response.status_code == 200:
-        ic(response.json())
         return response.json()  # Automatically parse JSON
     else:
         return {

@@ -1,8 +1,8 @@
+import argparse
+import datetime
 import json
 import time
-import datetime
 
-import argparse
 import humanize
 import requests
 
@@ -93,7 +93,7 @@ def format_comment(comment_json: dict, depth=1) -> str:
     """Recursively format comments and replies into Markdown."""
     author: str = comment_json["data"]["author"]
     body: str = comment_json["data"]["body"]
-    permalink: str = f"https://www.reddit.com{comment_json["data"]["permalink"]}"
+    permalink: str = f"https://www.reddit.com{comment_json['data']['permalink']}"
     is_op: str = "**OP**" if comment_json["data"]["is_submitter"] == True else ""
     time_posted: str = relative_time(comment_json["data"]["created_utc"])
     score: int = comment_json["data"]["score"]
